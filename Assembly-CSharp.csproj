@@ -50,6 +50,7 @@
      <Compile Include="Assets\Entities\Credit.cs" />
      <Compile Include="Assets\Entities\EconomyHandler.cs" />
      <Compile Include="Assets\Entities\EnemyControl.cs" />
+     <Compile Include="Assets\Entities\EnemyGroup.cs" />
      <Compile Include="Assets\Entities\FactionAreas\FF.cs" />
      <Compile Include="Assets\Entities\FactionAreas\OpenSpace.cs" />
      <Compile Include="Assets\Entities\FactionAreas\TUF.cs" />

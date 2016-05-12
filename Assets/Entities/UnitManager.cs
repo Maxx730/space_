@@ -16,9 +16,14 @@ public class UnitManager : MonoBehaviour {
 	public ArrayList player_units = new ArrayList();
 	public ArrayList enemy_units = new ArrayList();
 
+	//KEEP TRACK OF ALL THE DIFFERENT UNIT GROUPS ON THE MAP.
+	public ArrayList enemy_groups = new ArrayList();
+	public ArrayList player_groups = new ArrayList();
+
 	// Use this for initialization
 	void Start () {
 		update_info();
+		grab_unit_groups();
 	}
 	
 	// Update is called once per frame
@@ -40,16 +45,31 @@ public class UnitManager : MonoBehaviour {
 				}else if(obj.tag.Contains("Enemy")){
 					enemy_units.Add(obj);
 					all_units.Add(obj);
-				}else if(obj.tag.Contains("Grp")){
-					all_groups.Add(obj);
 				}
+			}else if(obj.tag.Contains("Grp")){
+				all_groups.Add(obj);
+			}
+		}
+	}
+
+	//LOOPS THROUGH ALL THE UNIT GROUPS AND CHECKS THE FIRST 
+	//UNIT TO DETERMINE IF THE UNIT GROUP IS AN ENEMY OR IF
+	//THE UNIT GROUP IS A PLAYER UNIT GROUP.
+	void grab_unit_groups(){
+		foreach(GameObject grp in all_groups){
+			Transform[] t = grp.GetComponentsInChildren<Transform>();
+
+			if(t[1].gameObject.tag.Contains("Pu")){
+				player_groups.Add(grp);
+			}else{
+				enemy_groups.Add(grp);
 			}
 		}
 	}
 
 	//DISPLAY PERTINENT INFORMATION FOR DEBUGGING PURPOSES.
 	void display_info(){
-		string info = "Player Units:"+player_units.Count+" EnemyUnits:"+enemy_units.Count+" Units:"+all_units.Count;
+		string info = "Player Units:"+player_units.Count+" EnemyUnits:"+enemy_units.Count+" Units:"+all_units.Count+" Player Groups:"+player_groups.Count+" Enemy Groups:"+enemy_groups.Count;
 		Debug.Log(info);
 	}
 

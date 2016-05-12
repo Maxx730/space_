@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyControl : MonoBehaviour {
 
 	public bool wandering = false;
+	public ArrayList playerGroups = new ArrayList();
 
 	// Use this for initialization
 	void Start () {
@@ -26,23 +27,18 @@ public class EnemyControl : MonoBehaviour {
 			GameObject current_tar;
 
 			//Enemies will only go after player units (for now)
-			if(group.name == "OrangeUnitGroup"){
-				float check_distance = Vector3.Distance(transform.position,group.transform.position);
-				
-				if(last_distance != 0){
-					if(check_distance < last_distance){
-						last_distance = check_distance;
-						current_tar = group;
-					}
-				}else{
-					//Set the last closest distance and keep track
-					//of which object it was.
-					last_distance = check_distance;
-					current_tar = group;
-				}
+			if(group.name.Contains("OrangeUnitGroup")){
+				playerGroups.Add(group);
 			}
 		}
 
-		
+
+	}
+
+	//Once each enemy unit has found a target unit group, we want the 
+	//the enemy unit to loop through and find a player unit within the
+	//targeted group.
+	void choose_random_unit(){
+
 	}
 }
