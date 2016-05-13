@@ -69,7 +69,11 @@ public class GenericUnit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		//IF THERE IS A TARGET, ROTATE TOWARDS REGARDLESS
+		//IF THE UNIT AS ALREADY ARRIVED.
+		if(movement_target != null){
+			rotate_unit();
+		}
 	}
 	
 	//Move sure the enemy is targeted at the player, we will have to 
@@ -95,7 +99,7 @@ public class GenericUnit : MonoBehaviour {
 		rb = transform.GetComponent<Rigidbody2D>();
 
 		//CAUSES A LARGE AMOUNT OF FRAME DROPS WHNEN USER CLICKS ENOUGH.
-		if(rb.velocity.magnitude < 1){
+		if(rb.velocity.magnitude < 1.5){
 			Vector3 vel = transform.rotation * Vector3.up;
 			rb.AddForce(vel * .1f * Time.deltaTime);
 		}

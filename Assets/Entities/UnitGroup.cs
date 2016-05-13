@@ -16,7 +16,7 @@ public class UnitGroup : MonoBehaviour {
 	public bool all_arrived;
 	public bool is_rotating;
 
-	
+
 
 	// Use this for initialization
 	void Start () {
