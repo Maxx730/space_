@@ -93,8 +93,12 @@ public class GenericUnit : MonoBehaviour {
 	void move_unit(){
 		//Add thrust to the unit to move it in the target direction.
 		rb = transform.GetComponent<Rigidbody2D>();
-		Vector3 vel = transform.rotation * Vector3.up;
-		rb.AddForce(vel * .1f * Time.deltaTime);
+
+		//CAUSES A LARGE AMOUNT OF FRAME DROPS WHNEN USER CLICKS ENOUGH.
+		if(rb.velocity.magnitude < 1){
+			Vector3 vel = transform.rotation * Vector3.up;
+			rb.AddForce(vel * .1f * Time.deltaTime);
+		}
 
 		if(engaging){
 			if (Vector3.Distance (transform.position, new Vector3(targeted_unit.transform.position.x,targeted_unit.transform.position.y,0)) < 5f) {
