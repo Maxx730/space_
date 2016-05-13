@@ -20,6 +20,7 @@ public class EnemyGroup : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		check_target_distance();
 	}
 
 	//LOOP THROUGH EACH UNIT GROUP AND FIND THE CLOSEST ONE BY CHECKING THE DISTANCE FROM
@@ -47,5 +48,13 @@ public class EnemyGroup : MonoBehaviour {
 	//
 	float get_grp_distance(Vector3 grp_position){
 		return Vector3.Distance(transform.position, grp_position);
+	}
+
+	void check_target_distance(){
+		if(cur_tar != null){
+			if(Vector3.Distance(transform.position,cur_tar.transform.position) > 10f){
+				transform.GetComponent<UnitGroup>().set_targets(cur_tar.transform.position);
+			}
+		}
 	}
 }
