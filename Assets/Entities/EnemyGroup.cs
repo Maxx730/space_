@@ -22,6 +22,8 @@ public class EnemyGroup : MonoBehaviour {
 	void Update () {
 	}
 
+	//LOOP THROUGH EACH UNIT GROUP AND FIND THE CLOSEST ONE BY CHECKING THE DISTANCE FROM
+	//THE FIRST UNIT IN THE UNIT GROUP.
 	void target_player_unitgroup(){
 		foreach(GameObject group in unit_manager.transform.GetComponent<UnitManager>().player_groups){
 			Transform[] t = group.GetComponentsInChildren<Transform>();
@@ -36,7 +38,8 @@ public class EnemyGroup : MonoBehaviour {
 			}
 		}
 
-		Debug.Log("Current Target"+cur_tar.name);
+		//SET THE ENEMY UNIT GROUP UNITS TARGET TO THE CLOSEST PLAYER UNIT GROUP.
+		transform.GetComponent<UnitGroup>().set_targets(cur_tar.transform.position);
 	}
 
 	//TAKES IN A TARGET SUCH AS A UNITS TRANSFORM POSITION
