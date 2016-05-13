@@ -52,7 +52,7 @@ public class EnemyGroup : MonoBehaviour {
 
 	void check_target_distance(){
 		if(cur_tar != null){
-			if(Vector3.Distance(transform.position,cur_tar.transform.position) > 10f){
+			if(Vector3.Distance(transform.position,cur_tar.transform.position) > 10f && transform.GetComponent<UnitGroup>().all_arrived == true){
 				transform.GetComponent<UnitGroup>().set_targets(cur_tar.transform.position);
 			}
 		}
