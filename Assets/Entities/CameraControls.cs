@@ -25,6 +25,10 @@ public class CameraControls : MonoBehaviour {
 	void Update () {
 		//CalculateZoom ();
 		moveCamera ();
+
+		if(Input.GetAxis("Mouse ScrollWheel") != 0f){
+			Camera.main.orthographicSize -= Input.GetAxis("Mouse ScrollWheel");
+		}
 	}
 
 	void CalculateZoom(){

@@ -57,6 +57,8 @@
      <Compile Include="Assets\Entities\FighterGun.cs" />
      <Compile Include="Assets\Entities\FighterSquad.cs" />
      <Compile Include="Assets\Entities\FormationBehavior.cs" />
+     <Compile Include="Assets\Entities\FormationHandler.cs" />
+     <Compile Include="Assets\Entities\FormationTarget.cs" />
      <Compile Include="Assets\Entities\GenericUnit.cs" />
      <Compile Include="Assets\Entities\GunPosition.cs" />
      <Compile Include="Assets\Entities\PlanetInfoScript.cs" />
