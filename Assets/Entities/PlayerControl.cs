@@ -7,66 +7,22 @@ using UnityEngine.UI;
 //really only deal with telling different units what they should be 
 //doing.
 public class PlayerControl : MonoBehaviour {
-
-	public string player_name;
-	public int player_score;
-	public string faction_name;
-
-	//List of units under the players current control.
-
 	//When a player clicks on a single unit, it will be focused upon
 	//that single unit for specific tasks,targets etc.
 	public GameObject targeted_unit;
 	public Transform focused_unit;
-
-	//When the player clicks to move a unit this will indicate where the 
-	//player has clicked on the map.
-	public GameObject target_redicule;
-	private GameObject enemy_targeted;
-	public GameObject enemy_target_redicule;
-
-	private float buttonDownTime = 0.0f;
-	private bool clickHold = false;
-	private float buttonUpTime;
-
-	public Text gameMode;
-	private bool reClick;
-	private float tarStartScale;
-	private float endTarScale;
-
-	//Variables used for selecting multiple units.
-	private Vector3 begin_selection;
-	private Vector3 end_selection;
-	private bool isDragging;
-	private bool hasBegun;
-
-	private bool squadSelected;
+	public GameObject unitMenu;
 
 	// Use this for initialization
 	void Start () {
 
-		reClick = false;
-
-		tarStartScale = .3f;
-		endTarScale = .6f;
-
 		//Set our focused unit to null because there is not one.
 		focused_unit = null;
-
-		squadSelected = false;
-
-		//Find the target redicule for displaying clicked targets.
-		target_redicule = GameObject.Find ("ClickTarget");
-		target_redicule.GetComponent<Renderer> ().enabled = false;
-
-		//Get our targeted enemy sprite and hide it.
-		enemy_targeted = GameObject.Find("TargetedEnemy");
-		enemy_targeted.GetComponent<Renderer>().enabled = false;
 	}
 
 	//Draw our selection box if the user is dragging.
 	void OnGUI () {
-		if(isDragging){
+		/*if(isDragging){
 			if(hasBegun){
 				begin_selection = Event.current.mousePosition;
 				hasBegun = false;
@@ -79,16 +35,11 @@ public class PlayerControl : MonoBehaviour {
 	    	GUI.Box( new Rect(begin_selection.x,begin_selection.y,Event.current.mousePosition.x-begin_selection.x,Event.current.mousePosition.y-begin_selection.y), GUIContent.none);
 		}else{
 			
-		}
+		}*/
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		if(targeted_unit != null){
-			enemy_target_redicule.transform.position = targeted_unit.transform.position;
-		}
-
 		//If there is a selected unit and the player right clicks then it will unfocus from
 		//any unit on the map.
 		if(Input.GetMouseButtonDown(1)){
@@ -99,6 +50,10 @@ public class PlayerControl : MonoBehaviour {
 			if(hit){
 				if(hit.collider.gameObject.tag.Contains("EnemyUnit")){
 
+				}else if(hit.collider.gameObject.tag.Contains("Pu")){
+					if(focused_unit != null){
+						unitMenu.GetComponent<UnitMenu>().show_canvas();
+					}
 				}
 			}else{
 				//If the raycast has not hit anything, then we will  either
@@ -158,6 +113,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 
 		//Reset what we are focused on.
+		unitMenu.GetComponent<UnitMenu>().hide_canvas();
 		focused_unit = null;
 	}
 

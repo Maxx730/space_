@@ -17,6 +17,9 @@ public class UnitGroup : MonoBehaviour {
 	public bool is_rotating;
 
 
+	void OnDrawGizmos(){
+		Gizmos.DrawWireSphere(transform.position, 3f);
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +31,7 @@ public class UnitGroup : MonoBehaviour {
 	void Update () {
 		//MAKE THE POSITION OF THE GROUP TAG THE SAME AS THE FIRST UNIT IN THE GROUP.
 		//group_tag.transform.position = new Vector3(units[0].transform.position.x,units[0].transform.position.y,-57.7f);
-		check_arrived();
+
 	}
 
 	//USE THIS FUNCTION TO REORDER UNITS AFTER THEY HAVE BEEN DESTROYED AS WELL.
@@ -41,7 +44,6 @@ public class UnitGroup : MonoBehaviour {
 				unit.GetComponent<GenericUnit>().in_group = true;
 			}
 		}				
-		Debug.Log("Units in Group: "+units.Count);
 	}
 
 	//LOOP THROUGH EACH UNIT IN THE GROUP AND TURN ON THEIR REDICULE, THIS WILL

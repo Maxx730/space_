@@ -124,7 +124,6 @@ public class GenericUnit : MonoBehaviour {
 				arrived_target = true;
 				cur_speed = 0;
 				engines_off();
-				player_control.GetComponent<PlayerControl>().target_redicule.GetComponent<Renderer>().enabled = false;
 			}
 		}
 	}

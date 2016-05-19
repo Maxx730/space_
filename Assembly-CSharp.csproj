@@ -73,6 +73,7 @@
      <Compile Include="Assets\Entities\UnitCollider.cs" />
      <Compile Include="Assets\Entities\UnitGroup.cs" />
      <Compile Include="Assets\Entities\UnitManager.cs" />
+     <Compile Include="Assets\Entities\UnitMenu.cs" />
      <Compile Include="Assets\Planets\Planet.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
