@@ -47,22 +47,17 @@
   <ItemGroup>
      <Compile Include="Assets\Entities\Asteroid.cs" />
      <Compile Include="Assets\Entities\CameraControls.cs" />
-     <Compile Include="Assets\Entities\Credit.cs" />
-     <Compile Include="Assets\Entities\EconomyHandler.cs" />
      <Compile Include="Assets\Entities\EnemyControl.cs" />
      <Compile Include="Assets\Entities\EnemyGroup.cs" />
      <Compile Include="Assets\Entities\FactionAreas\FF.cs" />
      <Compile Include="Assets\Entities\FactionAreas\OpenSpace.cs" />
      <Compile Include="Assets\Entities\FactionAreas\TUF.cs" />
      <Compile Include="Assets\Entities\FighterGun.cs" />
-     <Compile Include="Assets\Entities\FighterSquad.cs" />
-     <Compile Include="Assets\Entities\FormationBehavior.cs" />
      <Compile Include="Assets\Entities\FormationHandler.cs" />
      <Compile Include="Assets\Entities\FormationTarget.cs" />
      <Compile Include="Assets\Entities\GenericUnit.cs" />
      <Compile Include="Assets\Entities\GunPosition.cs" />
      <Compile Include="Assets\Entities\PlanetInfoScript.cs" />
-     <Compile Include="Assets\Entities\Player.cs" />
      <Compile Include="Assets\Entities\PlayerControl.cs" />
      <Compile Include="Assets\Entities\Projectile.cs" />
      <Compile Include="Assets\Entities\RotationControl.cs" />
@@ -70,7 +65,6 @@
      <Compile Include="Assets\Entities\SystemScript.cs" />
      <Compile Include="Assets\Entities\TimeController.cs" />
      <Compile Include="Assets\Entities\UiController.cs" />
-     <Compile Include="Assets\Entities\UnitCollider.cs" />
      <Compile Include="Assets\Entities\UnitGroup.cs" />
      <Compile Include="Assets\Entities\UnitManager.cs" />
      <Compile Include="Assets\Entities\UnitMenu.cs" />
