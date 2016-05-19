@@ -73,11 +73,13 @@ public class UnitGroup : MonoBehaviour {
 		move_target_redicule.GetComponent<Renderer>().enabled = true;
 		group_movement_target = movement_target;
 
-		/*foreach(Transform unit in units){
-			unit.GetComponent<GenericUnit>().set_target(movement_target);
-		}*/
-
-		transform.GetComponent<FormationHandler>().set_movement_formation();
+		if(transform.gameObject.tag.Contains("PlayerGrp")){
+			transform.GetComponent<FormationHandler>().set_movement_formation(movement_target);
+		}else{
+			foreach(Transform unit in units){
+				unit.GetComponent<GenericUnit>().set_target(movement_target);
+			}
+		}
 	}
 
 	//WE WANT TO SET A POINT FOR EACH INDIVIDUAL UNIT TO ROTATE

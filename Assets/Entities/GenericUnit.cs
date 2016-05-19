@@ -136,7 +136,7 @@ public class GenericUnit : MonoBehaviour {
 		//Because the wandering function will break.
 		if(transform.gameObject.tag.Contains("Pu")){
 			//Set the target for the focused unit.
-			movement_target = Camera.main.ScreenToWorldPoint(target);
+			movement_target = target;
 		}else{
 			//Set the target for the focused unit.
 			movement_target = target;
@@ -209,7 +209,7 @@ public class GenericUnit : MonoBehaviour {
 		//CHECK IF THE UNIT IS MOVING TOWARDS A TARGET.
 		//CHECK THE DISTANCE IF IT IS CLOSE ENOUGH THEN WE SET IS MOVING TO FALSE
 		//AND END THE COROUTINE.
-		while(Vector3.Distance (transform.position, new Vector3(movement_target.x,movement_target.y,0)) > 3f){
+		while(Vector3.Distance (transform.position, new Vector3(movement_target.x,movement_target.y,0)) > 1f){
 			rotate_unit();
 			move_unit();
 			yield return null;

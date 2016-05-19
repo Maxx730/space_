@@ -106,6 +106,7 @@ public class PlayerControl : MonoBehaviour {
 				if(focused_unit != null){
 					//Check if we have focused on a group or not.
 					if(focused_unit.gameObject.tag.Contains("Grp")){
+						focused_unit.GetComponent<UnitGroup>().GetComponent<FormationHandler>().clear_formation_targets();
 						focused_unit.GetComponent<UnitGroup>().set_targets(new Vector3(Input.mousePosition.x,Input.mousePosition.y,-57.7f));
 					}
 				}
@@ -120,6 +121,7 @@ public class PlayerControl : MonoBehaviour {
 			RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 		
 			if(hit){
+				Debug.Log(hit.collider.gameObject.tag);
 				//Figure out what we are hitting before taking specific actions.
 				if(hit.collider.gameObject.tag.Contains("Pu")){
 					//Check if the unit is part of a group, if so

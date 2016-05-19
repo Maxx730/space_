@@ -32,10 +32,10 @@ public class EnemyGroup : MonoBehaviour {
 			if(cur_tar != null){
 				if(get_grp_distance(t[1].position) < get_grp_distance(cur_tar.transform.position)){
 					last_tar = cur_tar;
-					cur_tar = t[1].gameObject;
+					cur_tar = t[get_random_target()].gameObject;
 				}
 			}else{
-				cur_tar = t[1].gameObject;
+				cur_tar = t[get_random_target()].gameObject;
 			}
 		}
 
@@ -55,6 +55,15 @@ public class EnemyGroup : MonoBehaviour {
 			if(Vector3.Distance(transform.position,cur_tar.transform.position) > 5f && transform.GetComponent<UnitGroup>().all_arrived == true){
 				transform.GetComponent<UnitGroup>().set_targets(cur_tar.transform.position);
 			}
+		}
+	}
+
+	int get_random_target(){
+
+		if(cur_tar != null){
+			return Random.Range(0,cur_tar.GetComponent<UnitGroup>().units.Count);
+		}else{
+			return 0;
 		}
 	}
 }

@@ -16,6 +16,8 @@ public class CameraControls : MonoBehaviour {
 	public Button zoomIn;
 	public Button zoomOut;
 
+	public GameObject UnitController;
+
 	// Use this for initialization
 	void Start () {
 
